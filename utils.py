@@ -36,15 +36,16 @@ def validate_bound(low_b, upp_b):
     else:
         return False
 
-def validate_choice(inp):
-    if inp[0].upper() == "Y" or inp[0].upper() == "N":
-        return True
-    else:
-        print("Invalid choice, try again\n")
-        return False
+def validate_choice(inp_set:list[str], inp):
+    for state in range(len(inp_set)):
+        if inp_set[state].upper() == inp.upper():
+            return True
+    print("Invalid input, try again\n")
+    return False
     
-def choice_to_bool(inp):
-    if inp[0].upper() == "Y":
-        return True
-    else:
-        return False
+def Y_or_N_choice(inp):
+    for state in range(len(inp_set)):
+        if inp_set[state][0].upper() == "Y":
+            return True
+        else:
+            return False
